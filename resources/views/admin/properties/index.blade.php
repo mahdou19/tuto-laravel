@@ -5,7 +5,7 @@
 @section('content')
     <div class="d-flex justify-content-between align-item-center">
         <h1>@yield('title')</h1>
-        <a href="{{ route('admin.property.create') }}" class="btn btn-primary btn-sm my-auto">Ajouter un bien</a>
+        <a href="{{ route('admin.property.create') }}" class="btn btn-primary my-auto">Ajouter un bien</a>
     </div>
 
     <table class="table-striped table">
