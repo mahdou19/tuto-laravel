@@ -27,15 +27,15 @@ class PropertyController extends Controller
         $property = new Property();
         $property->fill([
             'surface' => 40,
-            'price' =>4000,
-            'rooms'=> 3,
-            'bedrooms'=> 1,
+            'price' => 4000,
+            'rooms' => 3,
+            'bedrooms' => 1,
             'floor' => 0,
             'city' => 'Paris',
-            'adress'=> 'paris',
-            'postal_code'=> '7506',
-            'sold'=> false
-        ]);  
+            'adress' => 'paris',
+            'postal_code' => '7506',
+            'sold' => false
+        ]);
         return view('admin.properties.form', [
             'property' => $property
         ]);
@@ -46,9 +46,10 @@ class PropertyController extends Controller
      */
     public function store(PropertyFormRequest $request)
     {
-       
-   
+
+
         $property = new Property();
+        dd($request->validated());
         $property->create($request->validated());
         return to_route('admin.property.index')->with('success', 'Le bien a été bien créer');
     }
@@ -79,7 +80,6 @@ class PropertyController extends Controller
     public function destroy(Property $property)
     {
         $property->delete();
-        return to_route('admin.property.index')->with('success','Le bien a été bien supprimé');
-
+        return to_route('admin.property.index')->with('success', 'Le bien a été bien supprimé');
     }
 }
